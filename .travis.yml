@@ -1,0 +1,16 @@
+sudo: false
+language: python
+python: 3.5 # TODO remove once https://github.com/travis-ci/travis-ci/issues/4794 fully resolved
+env:
+    - TOXENV=py26-flask08
+    - TOXENV=py26-flask09
+    - TOXENV=py27-flask08
+    - TOXENV=py27-flask09
+    - TOXENV=py26-flask010
+    - TOXENV=py27-flask010
+    - TOXENV=py34-flask010
+    - TOXENV=py35-flask010
+install:
+    - pip install tox
+script:
+    - tox
