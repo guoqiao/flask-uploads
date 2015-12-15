@@ -2,7 +2,7 @@
 """
 flaskext.uploads
 ================
-This module provides upload support for Flask. The basic pattern is to set up
+This extension provides upload support for Flask. The basic pattern is to set up
 an `UploadSet` object and upload your files to it.
 
 :copyright: 2010 Matthew "LeafStorm" Frazier
@@ -20,12 +20,10 @@ else:
 
 import os.path
 import posixpath
-
-from flask import current_app, Module, send_from_directory, abort, url_for
+from flask import abort, Blueprint, current_app, send_from_directory, url_for
 from itertools import chain
 from werkzeug import secure_filename, FileStorage
 
-from flask import Blueprint
 
 # Extension presets
 
@@ -157,11 +155,11 @@ def configure_uploads(app, upload_sets):
     """
     Call this after the app has been configured. It will go through all the
     upload sets, get their configuration, and store the configuration on the
-    app. It will also register the uploads module if it hasn't been set. This
+    app. It will also register the _uploads blueprint if it hasn't been set. This
     can be called multiple times with different upload sets.
 
     .. versionchanged:: 0.1.3
-       The uploads module/blueprint will only be registered if it is needed
+       The uploads blueprint will only be registered if it is needed
        to serve the upload sets.
 
     :param app: The `~flask.Flask` instance to get the configuration from.
@@ -187,7 +185,7 @@ def configure_uploads(app, upload_sets):
 
     should_serve = any(s.base_url is None for s in set_config_values)
     if '_uploads' not in app.blueprints and should_serve:
-        app.register_blueprint(uploads_mod)
+        app.register_blueprint(uploads_bp)
 
 
 class All(object):
@@ -420,10 +418,10 @@ class UploadSet(object):
                 return newname
 
 
-uploads_mod = Blueprint('_uploads', __name__, url_prefix='/_uploads')
+uploads_bp = Blueprint('_uploads', __name__, url_prefix='/_uploads')
 
 
-@uploads_mod.route('/<setname>/<path:filename>')
+@uploads_bp.route('/<setname>/<path:filename>')
 def uploaded_file(setname, filename):
     config = current_app.upload_set_config.get(setname)
     if config is None:
