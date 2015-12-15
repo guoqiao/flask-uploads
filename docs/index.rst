@@ -1,7 +1,7 @@
 =============
 Flask-Uploads
 =============
-.. currentmodule:: flaskext.uploads
+.. currentmodule:: flask_uploads
 
 Flask-Uploads allows your application to flexibly and efficiently handle file
 uploading and serving the uploaded files.
@@ -79,17 +79,17 @@ And then you can use the `~UploadSet.save` method to save uploaded files and
     def upload():
         if request.method == 'POST' and 'photo' in request.files:
             filename = photos.save(request.files['photo'])
-            # save photo to your db somehow, for example with Flask-SQLAlchemy:
+            # save photo metadata to your db, for example with Flask-SQLAlchemy:
             photo = Photo(filename=filename, user=g.user.id)
             db.session.add(photo)
             db.session.commit(photo)
             flash("Photo saved.")
             return redirect(url_for('show', id=photo.id))
         return render_template('upload.html')
-    
+
     @app.route('/photo/<id>')
     def show(id):
-        # load photo from your db somehow, for example with Flask-SQLAlchemy:
+        # load photo metadata from your db, for example with Flask-SQLAlchemy:
         photo = Photo.query.get(id)
         if photo is None:
             abort(404)
@@ -204,6 +204,9 @@ Version 0.2.0
 -------------
 * The `patch_request_class` function was removed as it's unnecessary from Flask
   0.6 onward.
+* Filenames without extensions are no longer lowercased by `lowercase_ext`,
+  only the extension is returned in lowercase, if an extension exists.
+
 Version 0.1.3
 -------------
 * The `_uploads` module/blueprint will not be registered if it is not needed

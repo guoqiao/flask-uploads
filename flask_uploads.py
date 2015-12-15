@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-flaskext.uploads
+flask_uploads
 ================
 This extension provides upload support for Flask. The basic pattern is to set up
 an `UploadSet` object and upload your files to it.
@@ -180,7 +180,7 @@ def configure_uploads(app, upload_sets):
 
     try:
         set_config_values = set_config.itervalues()
-    except AttributeError:
+    except AttributeError: # Python 3 has no itervalues()
         set_config_values = set_config.values()
 
     should_serve = any(s.base_url is None for s in set_config_values)
