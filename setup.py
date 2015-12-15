@@ -4,14 +4,6 @@ Flask-Uploads
 Flask-Uploads provides flexible upload handling for Flask applications. It
 lets you divide your uploads into sets that the application user can publish
 separately.
-
-Links
-`````
-* `documentation <http://packages.python.org/Flask-Uploads>`_
-* `development version
-  <http://bitbucket.org/leafstorm/flask-uploads/get/tip.gz#egg=Flask-Uploads-dev>`_
-
-
 """
 from setuptools import setup
 
@@ -19,10 +11,10 @@ from setuptools import setup
 setup(
     name='Flask-Uploads',
     version='0.2.0',
-    url='http://bitbucket.org/leafstorm/flask-uploads/',
+    url='https://github.com/jeffwidman/flask-uploads/',
     license='MIT',
-    author='Matthew "LeafStorm" Frazier',
-    author_email='leafstormrush@gmail.com',
+    author='Jeff Widman',
+    author_email='jeff@jeffwidman.com',
     description='Flexible and efficient upload handling for Flask',
     long_description=__doc__,
     py_modules=['flask_uploads'],
