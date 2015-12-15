@@ -15,8 +15,8 @@ from __future__ import with_statement
 import os.path
 from flask import Flask, url_for
 from flask_uploads import (UploadSet, UploadConfiguration, extension,
-    lowercase_ext, TestingFileStorage, patch_request_class, configure_uploads,
-    addslash, ALL, AllExcept)
+    lowercase_ext, TestingFileStorage, configure_uploads, addslash, ALL,
+    AllExcept)
 
 
 class TestMiscellaneous(object):

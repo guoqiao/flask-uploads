@@ -123,17 +123,10 @@ You pass in the app and all of the upload sets you want configured. Calling
 If your app has a factory function, that is a good place to call this
 function.
 
-By default, though, Flask doesn't put any limits on the size of the uploaded
-data. To protect your application, you can use `patch_request_class`. If you
-call it with `None` as the second parameter, it will use the
-`MAX_CONTENT_LENGTH` setting to determine how large the upload can be. ::
-
-    patch_request_class(app, None)
-
-You can also call it with a number to set an absolute limit, but that only
-exists for backwards compatibility reasons and is not recommended for
-production use. In addition, it's not necessary for Flask 0.6 or greater, so
-if your application is only intended to run on Flask 0.6, you don't need it.
+By default, Flask `doesn't put any limits on the size of the uploaded data
+<http://flask.pocoo.org/docs/0.10/patterns/fileuploads/#improving-uploads>`_. To
+protect your application, you should set `MAX_CONTENT_LENGTH` in your
+application config to cap the maximum upload size.
 
 
 File Upload Forms
@@ -171,8 +164,6 @@ Application Setup
 -----------------
 .. autofunction:: configure_uploads
 
-.. autofunction:: patch_request_class
-
 
 Extension Constants
 -------------------
@@ -209,6 +200,10 @@ Testing Utilities
 
 Backwards Compatibility
 =======================
+Version 0.2.0
+-------------
+* The `patch_request_class` function was removed as it's unnecessary from Flask
+  0.6 onward.
 Version 0.1.3
 -------------
 * The `_uploads` module/blueprint will not be registered if it is not needed
