@@ -30,10 +30,10 @@ from werkzeug import secure_filename, FileStorage
 #: This just contains plain text files (.txt).
 TEXT = ('txt',)
 
-#: This contains various office document formats (.rtf, .odf, .ods, .gnumeric,
-#: .abw, .doc, .docx, .xls, and .xlsx). Note that the macro-enabled versions
+#: This contains various office document formats (.abw, .doc, .docx, .gnumeric,
+#: .odf, .ods, .pdf, .rtf, .xls, and .xlsx). Note that the macro-enabled versions
 #: of Microsoft Office 2007 files are not included.
-DOCUMENTS = tuple('rtf odf ods gnumeric abw doc docx xls xlsx'.split())
+DOCUMENTS = tuple('abw doc docx gnumeric odf ods pdf rtf xls xlsx'.split())
 
 #: This contains basic image types that are viewable from most browsers (.jpg,
 #: .jpe, .jpeg, .png, .gif, .svg, and .bmp).
