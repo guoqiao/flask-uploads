@@ -1,4 +1,6 @@
+=============
 Flask-Uploads
+=============
 
 Flask-Uploads allows your application to flexibly and efficiently handle file
 uploading and serving the uploaded files. You can create different sets of
@@ -8,16 +10,22 @@ generate different URLs for them.
 
 Documentation: https://pythonhosted.org/Flask-Uploads/
 
-Fully Python 3 compatible.
+Fully Python 3-compatible.
 
-There's an example application in example/ that requires
+There's an example application in ``example/`` that requires
 Flask-CouchDB.
 
-Tests:
+
+Tests
+=====
+
 To run the tests:
-  - `pip install nose`
-  - `nosetests`
+
+.. code:: sh
+
+  $ pip install nose
+  $ nosetests
 
 
-Currently maintained by Jeff Widman
-Originally written by Matthew "LeafStorm" Frazier
+| Currently maintained by Jeff Widman
+| Originally written by Matthew "LeafStorm" Frazier
