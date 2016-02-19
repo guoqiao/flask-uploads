@@ -13,7 +13,9 @@ Documentation: https://pythonhosted.org/Flask-Uploads/
 Fully Python 3-compatible.
 
 There's an example application in ``example/`` that requires
-Flask-CouchDB.
+Flask-CouchDB_.
+
+.. _Flask-CouchDB: https://pythonhosted.org/Flask-CouchDB/
 
 
 Tests
