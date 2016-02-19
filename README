@@ -16,7 +16,7 @@ Flask-CouchDB.
 Tests:
 To run the tests:
   - `pip install nose`
-  - `$ nosetests`
+  - `nosetests`
 
 
 Currently maintained by Jeff Widman
