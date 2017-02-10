@@ -8,8 +8,6 @@ uploads - one for document attachments, one for photos, etc. - and the
 application can be configured to save them all in different places and to
 generate different URLs for them.
 
-Documentation: https://pythonhosted.org/Flask-Uploads/
-
 Fully Python 3-compatible.
 
 There's an example application in ``example/`` that requires
