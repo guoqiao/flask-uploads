@@ -22,7 +22,8 @@ import os.path
 import posixpath
 from flask import abort, Blueprint, current_app, send_from_directory, url_for
 from itertools import chain
-from werkzeug import secure_filename, FileStorage
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import FileStorage
 
 
 # Extension presets
