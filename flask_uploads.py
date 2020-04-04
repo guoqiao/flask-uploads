@@ -10,14 +10,6 @@ an `UploadSet` object and upload your files to it.
 """
 
 import sys
-
-PY3 = sys.version_info[0] == 3
-
-if PY3:
-    string_types = str,
-else:
-    string_types = basestring,
-
 import os.path
 import posixpath
 from flask import abort, Blueprint, current_app, send_from_directory, url_for
@@ -464,7 +456,7 @@ class TestingFileStorage(FileStorage):
         :param dst: The file to save to.
         :param buffer_size: Ignored.
         """
-        if isinstance(dst, string_types):
+        if isinstance(dst, str):
             self.saved = dst
         else:
             self.saved = dst.name
